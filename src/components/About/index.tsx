@@ -1,4 +1,3 @@
-import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Card, Col, Layout, Row, Space, Typography } from "antd";
 import React from "react";
 
@@ -28,13 +27,19 @@ const About: React.FC = () => {
             <Space
               direction="vertical"
               align="center"
-              style={{ width: "100%" }}
+              style={{
+                width: "100%",
+                justifyContent: "center",
+                marginTop: "40px",
+              }}
             >
               <Avatar
                 size={200}
-                icon={<UserOutlined />}
+                src="/profile.png"
                 style={{
                   backgroundColor: "var(--primary, #03a9f4)",
+                  display: "block",
+                  margin: "15 auto",
                 }}
               />
             </Space>
