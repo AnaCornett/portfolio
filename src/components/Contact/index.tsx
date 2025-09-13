@@ -85,70 +85,66 @@ const Contact: React.FC = () => {
           </Text>
         </Space>
 
-        <Row justify="center">
-          <Col xs={24} lg={12}>
-            <Card
-              style={{
-                height: "100%",
-                backgroundColor: "var(--card-bg, #ffffff)",
-                borderColor: "var(--border-color, #e0e0e0)",
-              }}
-              title={
-                <Title
-                  level={3}
-                  style={{
-                    margin: 0,
-                    color: "var(--text-primary, #212121)",
-                    textAlign: "center",
-                  }}
-                >
-                  Contact Information
-                </Title>
-              }
-            >
-              <Space
-                direction="vertical"
-                size="large"
-                style={{ width: "100%" }}
+        <Row gutter={[24, 24]} justify="center">
+          {contactInfo.map((info, index) => (
+            <Col xs={24} sm={12} lg={8} key={index}>
+              <Card
+                hoverable
+                style={{
+                  height: "100%",
+                  backgroundColor: "var(--card-bg, #ffffff)",
+                  borderColor: "var(--border-color, #e0e0e0)",
+                  textAlign: "center",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                }}
+                bodyStyle={{
+                  padding: "32px 24px",
+                }}
               >
-                {contactInfo.map((info, index) => (
-                  <Space key={index} align="center" size="large">
-                    <Typography.Text
+                <Space direction="vertical" align="center" style={{ width: "100%" }} size="large">
+                  <div
+                    style={{
+                      backgroundColor: "var(--primary, #03a9f4)",
+                      borderRadius: "50%",
+                      width: "60px",
+                      height: "60px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#ffffff",
+                      fontSize: "24px",
+                    }}
+                  >
+                    {info.icon}
+                  </div>
+                  <Space direction="vertical" align="center" size="small">
+                    <Typography.Title
+                      level={4}
                       style={{
-                        color: "var(--primary, #03a9f4)",
-                        fontSize: "20px",
-                        minWidth: "24px",
-                        display: "inline-block",
+                        margin: 0,
+                        color: "var(--text-primary, #212121)",
+                        fontSize: "18px",
                       }}
                     >
-                      {info.icon}
-                    </Typography.Text>
-                    <Space direction="vertical" size="small">
-                      <Typography.Text
-                        style={{
-                          fontWeight: "600",
-                          color: "var(--text-primary, #212121)",
-                        }}
-                      >
-                        {info.label}
-                      </Typography.Text>
-                      <Link
-                        href={info.link}
-                        target={
-                          info.link.startsWith("http") ? "_blank" : "_self"
-                        }
-                        style={{
-                          color: "var(--primary, #03a9f4)",
-                        }}
-                      >
-                        {info.value}
-                      </Link>
-                    </Space>
+                      {info.label}
+                    </Typography.Title>
+                    <Link
+                      href={info.link}
+                      target={info.link.startsWith("http") ? "_blank" : "_self"}
+                      style={{
+                        color: "var(--text-secondary, #757575)",
+                        fontSize: "14px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {info.value}
+                    </Link>
                   </Space>
-                ))}
-              </Space>
-            </Card>
-          </Col>
+                </Space>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Space>
     </Content>
