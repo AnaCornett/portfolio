@@ -1,4 +1,4 @@
-import { GithubOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
+import { GithubOutlined, LinkedinOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import {
   Typography as AntTypography,
   Card,
@@ -40,6 +40,12 @@ const Contact: React.FC = () => {
       label: "Phone",
       value: "(937) 212-7053",
       link: "tel:+19372127053",
+    },
+    {
+      icon: <LinkedinOutlined />,
+      label: "LinkedIn",
+      value: "linkedin.com/in/anabele-cornett",
+      link: "https://www.linkedin.com/in/anabele-cornett-74593b149/",
     },
     {
       icon: <GithubOutlined />,
@@ -87,7 +93,7 @@ const Contact: React.FC = () => {
 
         <Row gutter={[24, 24]} justify="center">
           {contactInfo.map((info, index) => (
-            <Col xs={24} sm={12} lg={8} key={index}>
+            <Col xs={24} sm={12} lg={6} key={index}>
               <Card
                 hoverable
                 style={{
